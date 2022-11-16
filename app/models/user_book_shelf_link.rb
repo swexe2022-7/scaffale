@@ -1,0 +1,2 @@
+class UserBookShelfLink < ApplicationRecord
+end
