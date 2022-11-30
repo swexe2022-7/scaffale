@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_16_084923) do
+ActiveRecord::Schema.define(version: 2022_11_23_081610) do
 
   create_table "bookshelves", force: :cascade do |t|
     t.integer "ISBN"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 2022_11_16_084923) do
   create_table "user_bookshelf_links", force: :cascade do |t|
     t.integer "user_id"
     t.integer "bookshelf_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "pass"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
