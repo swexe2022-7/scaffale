@@ -34,7 +34,13 @@ class LibrarianController < ApplicationController
             id=d["id"]
             d=d["volumeInfo"]
             title=d["title"]
-            thumbnail=d["thumbnail"]
+            thumbnail_images=d["imageLinks"]
+            if thumbnail_images!=nil
+                thumbnail=thumbnail_images["thumbnail"]
+            else
+                thumbnail=nil    
+            end
+
             link=d["infoLink"]
             b=bookinfo.new(id,title,thumbnail,link)
             @booksdata.push(b)
