@@ -4,16 +4,35 @@ require "json"
 
 class LibrarianController < ApplicationController
     def index
-        #nanikakaku
+        @bookshelves=[]#Bookshelf.all
     end
     
+    def showshelf
+    end
     
+    def edit
+        @titlestatus=true
+    end
+    
+    def new
+        @titlestatus=true
+    end
+    
+    def add
+        @from=params[:id]
+    end
+    
+    def back
+        if params[:id]=="new"
+            redirect_to "/new"
+        else
+            redirect_to "/edit"
+        end
+    end
     
     def verification
         keyword="ハリーポッター"
         @data=googlebookapi_data(keyword)
-        #@data=JSON.parse(googlebookapi_req(keyword))['items']
-        
         
     end
     
@@ -40,7 +59,6 @@ class LibrarianController < ApplicationController
             else
                 thumbnail=nil    
             end
-
             link=d["infoLink"]
             b=bookinfo.new(id,title,thumbnail,link)
             @booksdata.push(b)
