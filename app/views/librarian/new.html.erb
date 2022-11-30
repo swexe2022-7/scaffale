@@ -1,0 +1,9 @@
+<h1>Make new Bookshelf</h1>
+
+<% if @titlestatus==false %>
+    <%= render partial:"title",locals: { from: "new" } %>
+<% else %>
+    <%= render partial:"modify",locals: { from: "new" } %>
+<% end %>
+
+<%= link_to 'Home', "/index" %>

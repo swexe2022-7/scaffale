@@ -1,0 +1,9 @@
+<h1>Edit page</h1>
+
+<% if @titlestatus==false %>
+    <%= render partial:"title",locals: { from: "edit" } %>
+<% else %>
+    <%= render partial:"modify",locals: { from: "edit" } %>
+<% end %>
+
+<%= link_to 'Home', "/index" %>
