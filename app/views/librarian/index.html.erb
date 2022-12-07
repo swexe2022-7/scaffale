@@ -7,3 +7,11 @@
 <%= link_to 'show', "/showshelf" %>
 <%= link_to 'new', "/new" %>
 <%= link_to 'edit usr info', "#" %>
+
+<% if session[:email] %>
+    <p><%= link_to 'ログアウト', top_logout_path %></p>
+    <p><%= link_to 'ユーザ一覧', users_path %></p>
+<% else %>
+    <p><%= link_to 'ログイン', top_main_path %></p>
+    <p><%= link_to 'ユーザ一覧', users_path %></p>
+<% end %>

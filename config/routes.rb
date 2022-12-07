@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get ":id/add" => "librarian#add"
   get ":id/back" => "librarian#back"
   resources :users    
-  root 'top#main'  
+  #root 'top#main'
+  root 'librarian#index'
   get 'top/main'
   post 'top/login'
   get 'top/logout'
