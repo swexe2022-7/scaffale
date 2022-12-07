@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_23_081610) do
+ActiveRecord::Schema.define(version: 2022_12_07_063143) do
+
+  create_table "book_collection_lists", force: :cascade do |t|
+    t.integer "Bookshelf_id"
+    t.integer "googlebooksid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bookshelves", force: :cascade do |t|
-    t.integer "ISBN"
     t.string "title"
     t.integer "user_id"
     t.datetime "created_at", null: false

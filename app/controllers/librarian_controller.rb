@@ -13,9 +13,30 @@ class LibrarianController < ApplicationController
     def edit
         @titlestatus=true
     end
-    
+   
     def new
-        @titlestatus=true
+        #randing
+        shelf=Bookshelf.new(title: "",user_id: 0)
+        shelf.save
+        session[:shelf_id]=shelf.id
+        redirect_to "/create"
+    end
+     
+    def create
+        @id=session[:shelf_id]
+        shelf=Bookshelf.find(@id)
+        if shelf.title == ""
+            @status=false
+        else
+            @status=true
+        end
+        
+        @shelfdata=BookCollectionList.find_by(id: @id)
+    end
+    
+    def title
+        Bookshelf.find(session[:shelf_id]).update(title: params[:title])
+        back_to(params[:from])
     end
     
     def add
@@ -23,8 +44,12 @@ class LibrarianController < ApplicationController
     end
     
     def back
-        if params[:id]=="new"
-            redirect_to "/new"
+        back_to(params[:id])
+    end
+    
+    def back_to(from)
+        if from=="create"
+            redirect_to "/create"
         else
             redirect_to "/edit"
         end

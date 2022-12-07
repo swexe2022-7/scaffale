@@ -1,1 +1,5 @@
 <h1>Title edit form</h1>
+<%= form_tag "/#{from}/title", method: :post do %>
+    <%= text_field_tag :title %>
+    <%= submit_tag %>
+<% end %>

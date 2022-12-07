@@ -1,2 +1,6 @@
 <h1>Add from api</h1>
+<%= form_tag "", method: :post do %>
+    <%= text_field_tag :title %>
+    <%= submit_tag "検索" %>
+<% end %>
 <%= link_to 'back', "/#{@from}/back" %>

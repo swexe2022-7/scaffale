@@ -1,2 +1,10 @@
 <h1>show temp and edit</h1>
+<% if @shelfdata==nil %>
+    <%= "no data"  %><br>
+<% else %>
+    <% @shelfdata.each do |d| %>
+        <%= d %>
+    <% end %>
+<% end %>
+
 <%= link_to 'add book', "/#{from}/add" %>
