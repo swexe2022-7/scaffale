@@ -1,2 +1,18 @@
 <h1>Add from api</h1>
-<%= link_to 'back', "/#{@from}/back" %>
+<%= form_tag "", method: :post do %>
+    <%= text_field_tag :search_field %>
+    <%= submit_tag "検索" %>
+<% end %>
+
+<% if @data != nil%>
+    <% @data.each do |d| %>
+        <% data=googlebookapi_search_one(d.id) %>
+        <%= data.title %><br>
+        <%= link_to image_tag("#{data.thumbnail}"), "#{data.link}" %><br>
+        <%= link_to 'add shelf', "/#{data.id}/addbook" %>
+        <br>
+    <% end %>
+<% else %>
+    <p>none</p>
+<% end %>
+<%= link_to 'back', "/back" %>
