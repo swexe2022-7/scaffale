@@ -1,18 +1,27 @@
-<% if @user.errors.present? %>
-    <h3>エラーがあります。</h3>
-    <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-    </ul>
-<% end %>
+<header>
+    <h1>
+        <a href="/">Scaffale</a>
+    </h1>
+</header>
 
-<%= form_for @user , tdate: {action: :create} do |f| %>
-    <p><%= f.label :email, 'email : ' %>
-    <%= f.text_field :email %></p>
-    <p><%= f.label :password, 'password : ' %>
-    <%= f.password_field :password %></p>
-    <p><%= f.label :password_confirmation, 'password(confirmation)' %>
-    <%= f.password_field :password_confirmation %></p>
-    <%= f.submit '登録' %>
-<% end %>
+<body>
+    <% if @user.errors.present? %>
+        <h3>エラーがあります。</h3>
+        <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    
+    <%= form_for @user , tdate: {action: :create} do |f| %>
+        <p><%= f.label :email, 'email : ' %>
+        <%= f.text_field :email %></p>
+        <p><%= f.label :password, 'password : ' %>
+        <%= f.password_field :password %></p>
+        <p><%= f.label :password_confirmation, 'password(confirmation)' %>
+        <%= f.password_field :password_confirmation %></p>
+        <%= f.submit '登録' %>
+    <% end %>
+    <p><%= link_to '戻る', root_path %></p>
+</body>
