@@ -5,11 +5,10 @@
 <% end %>
 
 <% if @data != nil%>
-    <% @data.each do |data| %>
-        id:<%= data.id %><br>
-        title:<%= data.title %><br>
-        thumbnail url:<%= data.thumbnail %><br>
-        link:<%= data.link %><br>
+    <% @data.each do |d| %>
+        <% data=googlebookapi_search_one(d.id) %>
+        <%= data.title %><br>
+        <%= link_to image_tag("#{data.thumbnail}"), "#{data.link}" %><br>
         <%= link_to 'add shelf', "/#{data.id}/addbook" %>
         <br>
     <% end %>

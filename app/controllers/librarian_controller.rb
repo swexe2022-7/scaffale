@@ -26,6 +26,15 @@ class LibrarianController < ApplicationController
         @id=session[:shelf_id]
         @shelfdata=BookCollectionList.where(Bookshelf_id: @id)
     end
+    
+    def edit_title
+        @status=false
+        render action: :edit
+    end
+    
+    def confirmtitle
+        
+    end
    
     def new
         #randing
@@ -71,7 +80,7 @@ class LibrarianController < ApplicationController
         else
             #bad
         end
-        render action: :add
+        redirect_to "/back"
     end
     
     def delete_book

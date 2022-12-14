@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "show" => "librarian#show"
   get ":id/delete" => "librarian#delete_book"
   get ":id/shelf/delete" => "librarian#delete_shelf"
+  get "edit_title" => "librarian#edit_title"
+  post "edit_title" => "librarian#title"
   resources :users    
   root 'top#main'  
   get 'top/main'

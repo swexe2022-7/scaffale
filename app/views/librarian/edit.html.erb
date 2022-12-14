@@ -1,5 +1,6 @@
 <h1>Edit page</h1>
 <%= @id %>
+<%= link_to 'edit title', "/edit_title" %>
 <%= link_to 'delete shelf', "/#{@id}/shelf/delete" %>
 
 <% if @status==false %>

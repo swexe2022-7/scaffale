@@ -5,7 +5,7 @@
     <% @shelfdata.each do |d| %>
         <% data=googlebookapi_search_one(d.googlebooksid) %>
         <%= data.title %><br>
-        <%= link_to image_tag("#{data.thumbnail}"), "#{data.link}" %>
+        <%= link_to image_tag("#{data.thumbnail}"), "#{data.link}" %><br>
         <%= link_to 'delete', "/#{d.id}/delete" %><br>
     <% end %>
 <% end %>
