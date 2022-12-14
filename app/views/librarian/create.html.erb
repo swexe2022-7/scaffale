@@ -2,9 +2,9 @@
 <%= @id %>
 
 <% if @status==false %>
-    <%= render partial:"title",locals: { from: "create" } %>
+    <%= render partial:"title" %>
 <% elsif  @status==true %>
-    <%= render partial:"modify",locals: { from: "create" } %>
+    <%= render partial:"modify" %>
 <% else %>
 <% end %>
 

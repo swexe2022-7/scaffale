@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2022_12_07_063143) do
 
   create_table "book_collection_lists", force: :cascade do |t|
     t.integer "Bookshelf_id"
-    t.integer "googlebooksid"
+    t.string "googlebooksid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

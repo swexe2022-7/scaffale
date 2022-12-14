@@ -1,9 +1,10 @@
 <h1>Main Page</h1>
 
 <% @bookshelves.each do |data| %>
-
+    <%= data.title %><br>
+    <%= link_to 'show', "/#{data.id}/showshelf" %><br>
+    <br>
 <% end %>
 
-<%= link_to 'show', "/showshelf" %>
 <%= link_to 'new', "/new" %>
 <%= link_to 'edit usr info', "#" %>

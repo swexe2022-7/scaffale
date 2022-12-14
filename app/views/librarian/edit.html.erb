@@ -1,9 +1,12 @@
 <h1>Edit page</h1>
+<%= @id %>
+<%= link_to 'delete shelf', "/#{@id}/shelf/delete" %>
 
-<% if @titlestatus==false %>
-    <%= render partial:"title",locals: { from: "edit" } %>
+<% if @status==false %>
+    <%= render partial:"title" %>
+<% elsif  @status==true %>
+    <%= render partial:"modify" %>
 <% else %>
-    <%= render partial:"modify",locals: { from: "edit" } %>
 <% end %>
 
 <%= link_to 'Home', "/index" %>

@@ -1,6 +1,19 @@
 <h1>Add from api</h1>
 <%= form_tag "", method: :post do %>
-    <%= text_field_tag :title %>
+    <%= text_field_tag :search_field %>
     <%= submit_tag "検索" %>
 <% end %>
-<%= link_to 'back', "/#{@from}/back" %>
+
+<% if @data != nil%>
+    <% @data.each do |data| %>
+        id:<%= data.id %><br>
+        title:<%= data.title %><br>
+        thumbnail url:<%= data.thumbnail %><br>
+        link:<%= data.link %><br>
+        <%= link_to 'add shelf', "/#{data.id}/addbook" %>
+        <br>
+    <% end %>
+<% else %>
+    <p>none</p>
+<% end %>
+<%= link_to 'back', "/back" %>
