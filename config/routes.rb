@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get "edit_title" => "librarian#edit_title"
   post "edit_title" => "librarian#title"
   resources :users    
-  root 'top#main'  
+  #root 'top#main'
+  root 'librarian#index'
   get 'top/main'
   post 'top/login'
   get 'top/logout'
