@@ -1,17 +1,25 @@
-<h1>Main Page</h1>
+<header>
+    <h1>
+        <a href="/">Scaffale</a>
+    </h1>
+    
+    <nav class="login">
+        <a href="#">
+            <% if session[:email] %>
+                <%= link_to 'ログアウト', top_logout_path %>
+            <% else %>
+                <%= link_to 'ログイン', top_main_path %>
+            <% end %>
+        </a>
+    </nav>
+</header>
 
-<% @bookshelves.each do |data| %>
-
-<% end %>
-
-<%= link_to 'show', "/showshelf" %>
-<%= link_to 'new', "/new" %>
-<%= link_to 'edit usr info', "#" %>
-
-<% if session[:email] %>
-    <p><%= link_to 'ログアウト', top_logout_path %></p>
-    <p><%= link_to 'ユーザ一覧', users_path %></p>
-<% else %>
-    <p><%= link_to 'ログイン', top_main_path %></p>
-    <p><%= link_to 'ユーザ一覧', users_path %></p>
-<% end %>
+<body>
+    <% @bookshelves.each do |data| %>
+                
+    <% end %>
+                
+    <%= link_to 'show', "/showshelf" %>
+    <%= link_to 'new', "/new" %>
+    <%= link_to 'edit usr info', "#" %>
+</body>
