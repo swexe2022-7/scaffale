@@ -3,15 +3,17 @@
         <a href="/">Scaffale</a>
     </h1>
     
-    <nav class="login">
-        <a href="#">
-            <% if session[:email] %>
-                <%= link_to 'ログアウト', top_logout_path %>
-            <% else %>
-                <%= link_to 'ログイン', top_main_path %>
-            <% end %>
-        </a>
-    </nav>
+    <div class="login">
+        <nav>
+            <a href="#">
+                <% if session[:email] %>
+                    <%= link_to 'ログアウト', top_logout_path %>
+                <% else %>
+                    <%= link_to 'ログイン', top_main_path %>
+                <% end %>
+            </a>
+        </nav>
+    </div>
 </header>
 
 <body>
