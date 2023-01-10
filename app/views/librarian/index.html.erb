@@ -16,6 +16,8 @@
     </div>
 </header>
 
+<p><%= link_to 'new', "/new" %></p>
+<p><%= link_to 'edit usr info', "#" %></p>
 
 <% @bookshelves.each do |data| %>
     <%= data.title %><br>
@@ -30,6 +32,3 @@
     <%= link_to 'show', "/#{data.id}/showshelf" %><br>
     <br>
 <% end %>
-
-<%= link_to 'new', "/new" %>
-<%= link_to 'edit usr info', "#" %>
