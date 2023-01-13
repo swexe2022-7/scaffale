@@ -16,8 +16,10 @@
     </div>
 </header>
 
-<p><%= link_to 'new', "/new" %></p>
-<p><%= link_to 'edit usr info', "#" %></p>
+<% if session[:email] %>
+    <p><%= link_to 'new', "/new" %></p>
+    <p><%= link_to 'edit user info', "#" %></p>
+<% end %>
 
 <% @bookshelves.each do |data| %>
     <%= data.title %><br>
@@ -29,6 +31,8 @@
         <%= link_to image_tag("#{bookdata.thumbnail}"), "#{bookdata.link}" %><br>
     <% end %>
     
-    <%= link_to 'show', "/#{data.id}/showshelf" %><br>
+    <% if session[:email] %>
+        <%= link_to 'show', "/#{data.id}/showshelf" %><br>
+    <% end %>
     <br>
 <% end %>
