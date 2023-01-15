@@ -6,7 +6,7 @@ class LibrarianController < ApplicationController
     protect_from_forgery
     
     def index
-        @bookshelves=Bookshelf.all
+        @bookshelves=Bookshelf.where(User_id: session[:user_id])
     end
     
     def showshelf
@@ -34,7 +34,7 @@ class LibrarianController < ApplicationController
     
     def new
         #randing
-        shelf=Bookshelf.new(title: "",user_id: 0)
+        shelf=Bookshelf.new(title: "",user_id: session[:user_id])
         shelf.save
         session[:shelf_id]=shelf.id
         redirect_to "/create"
@@ -163,5 +163,14 @@ class LibrarianController < ApplicationController
         return @book
     end
     
-    helper_method :googlebookapi_data, :googlebookapi_search_one
+    def generate_shereURL
+        return request.protocol+request.host+"/share?sid=#{session[:shelf_id]}"
+    end
+    
+    def shere
+        session[:shelf_id]=params[:sid]
+        redirect_to "/show"
+    end
+    
+    helper_method :googlebookapi_data, :googlebookapi_search_one, :generate_shereURL
 end

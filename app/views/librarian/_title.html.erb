@@ -1,5 +1,7 @@
-<P>タイトル</P>
+<div class="maincontents">
 <%= form_tag "/title", method: :post do %>
+    <P class="title">タイトル</P>
     <%= text_field_tag :title %>
-    <%= submit_tag "次へ"%>
+    <%= submit_tag "次へ", class: "button" %>
 <% end %>
+</div>

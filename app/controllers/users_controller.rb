@@ -12,6 +12,7 @@ class UsersController < ApplicationController
         if @user.save
           flash[:notice] = '登録しました'
           session[:email] =@user.email
+          session[:user_id]=@user.id
           redirect_to index_path
         else
           render new_user_path

@@ -1,9 +1,9 @@
-<%= link_to 'タイトルを編集', "/edit_title" %>
-<%= link_to '削除', "/#{@id}/shelf/delete" %>
-
+<div class="maincontents">
 <% if @status==false %>
     <%= render partial:"title" %>
-<% elsif  @status==true %>
+<% elsif @status==true %>
     <%= render partial:"modify" %>
 <% else %>
+    <p>Session Error</p>
 <% end %>
+</div>

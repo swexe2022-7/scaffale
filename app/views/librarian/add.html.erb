@@ -1,21 +1,26 @@
-<%= form_tag "", method: :post do %>
+<div class="maincontents">
+    <div class="back_link"><%= link_to "← 戻る", "/back" %></div>
+<%= form_tag "", method: :post, class: "search" do %>
     <%= text_field_tag :search_field %>
-    <%= submit_tag "検索" %>
+    <%= submit_tag "Q" , class: "button"%>
 <% end %>
 
+<div class="book_list">
 <% if @data != nil%>
     <% @data.each do |d| %>
+        <div class="book">
         <% data=googlebookapi_search_one(d.id) %>
-        <%= data.title %><br>
+        <%= truncate(data.title, length:9) %><br>
         <% if data.thumbnail != nil%>
             <%= link_to image_tag("#{data.thumbnail}"), "#{data.link}" %><br>
         <% else %>
-            <%= image_tag 'no_img.png'%>
+            <%= link_to image_tag("no_img.png"), "#{data.link}" %><br>
         <% end %>
-        <%= link_to 'add shelf', "/#{data.id}/addbook" %>
-        <br>
+        <%= link_to '追加', "/#{data.id}/addbook" %><br>
+        </div>
     <% end %>
 <% else %>
     <p>検索結果：なし</p>
 <% end %>
-<%= link_to '戻る', "/back" %>
+</div>
+</div>
