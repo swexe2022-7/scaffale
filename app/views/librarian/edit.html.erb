@@ -1,26 +1,5 @@
-<header>
-    <h1>
-        <a href="/">Scaffale</a>
-    </h1>
-    
-    <div class="login">
-        <nav>
-            <a href="#">
-                <% if session[:email] %>
-                    <%= link_to 'ログアウト', top_logout_path %>
-                <% else %>
-                    <%= link_to 'ログイン', top_main_path %>
-                <% end %>
-            </a>
-        </nav>
-    </div>
-</header>
-
-
-<h1>Edit page</h1>
-<%= @id %>
-<%= link_to 'edit title', "/edit_title" %>
-<%= link_to 'delete shelf', "/#{@id}/shelf/delete" %>
+<%= link_to 'タイトルを編集', "/edit_title" %>
+<%= link_to '削除', "/#{@id}/shelf/delete" %>
 
 <% if @status==false %>
     <%= render partial:"title" %>
@@ -28,5 +7,3 @@
     <%= render partial:"modify" %>
 <% else %>
 <% end %>
-
-<%= link_to 'Home', "/index" %>

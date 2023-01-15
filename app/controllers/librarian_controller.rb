@@ -32,10 +32,6 @@ class LibrarianController < ApplicationController
         render action: :edit
     end
     
-    def confirmtitle
-        
-    end
-   
     def new
         #randing
         shelf=Bookshelf.new(title: "",user_id: 0)

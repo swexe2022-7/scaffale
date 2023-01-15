@@ -1,25 +1,7 @@
-<header>
-    <h1>
-        <a href="/">Scaffale</a>
-    </h1>
-    
-    <div class="login">
-        <nav>
-            <a href="#">
-                <% if session[:email] %>
-                    <%= link_to 'ログアウト', top_logout_path %>
-                <% else %>
-                    <%= link_to 'ログイン', top_main_path %>
-                <% end %>
-            </a>
-        </nav>
-    </div>
-</header>
-
-<h1>Show a Bookshelf</h1>
-<% if @shelfdata==nil %>
-    <%= "no data"  %><br>
+<% if @shelfdata.empty? %>
+    <%= "本がありません" %><br>
 <% else %>
+    <P><%= Bookshelf.find(session[:shelf_id]).title %></P>
     <% @shelfdata.each do |d| %>
         <% data=googlebookapi_search_one(d.googlebooksid) %>
         <%= data.title %><br>
@@ -27,4 +9,4 @@
     <% end %>
 <% end %>
 
-<%= link_to 'edit', "/edit" %>
+<%= link_to '編集', "/edit" %>

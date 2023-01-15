@@ -1,6 +1,6 @@
-<h1>show temp and edit</h1>
-<% if @shelfdata==nil %>
-    <%= "no data"  %><br>
+ <P><%= Bookshelf.find(session[:shelf_id]).title %></P>
+<% if @shelfdata.empty? %>
+    <%= "本がありません" %><br>
 <% else %>
     <% @shelfdata.each do |d| %>
         <% data=googlebookapi_search_one(d.googlebooksid) %>

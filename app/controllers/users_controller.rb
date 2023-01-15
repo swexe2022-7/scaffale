@@ -11,6 +11,7 @@ class UsersController < ApplicationController
                         password_confirmation: params[:user][:password_confirmation])
         if @user.save
           flash[:notice] = '登録しました'
+          session[:email] =@user.email
           redirect_to index_path
         else
           render new_user_path
