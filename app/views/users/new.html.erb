@@ -15,13 +15,13 @@
     <% end %>
     
     <%= form_for @user , tdate: {action: :create} do |f| %>
-        <p><%= f.label :email, 'email : ' %>
-        <%= f.text_field :email %></p>
-        <p><%= f.label :password, 'password : ' %>
-        <%= f.password_field :password %></p>
-        <p><%= f.label :password_confirmation, 'password(confirmation)' %>
-        <%= f.password_field :password_confirmation %></p>
-        <%= f.submit '登録' %>
+        <p><%= f.label :email, 'email' %></p>
+        <%= f.text_field :email %>
+        <p><%= f.label :password, 'password' %></p>
+        <%= f.password_field :password %>
+        <p><%= f.label :password_confirmation, 'password(confirmation)' %></p>
+        <%= f.password_field :password_confirmation %>
+        <p><%= link_to "← 戻る", root_path %></p>
+        <%= f.submit '登録' , class: "button"%>
     <% end %>
-    <p><%= link_to '戻る', root_path %></p>
 </body>

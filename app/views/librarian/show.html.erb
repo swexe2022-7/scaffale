@@ -1,30 +1,24 @@
-<header>
-    <h1>
-        <a href="/">Scaffale</a>
-    </h1>
-    
-    <div class="login">
-        <nav>
-            <a href="#">
-                <% if session[:email] %>
-                    <%= link_to 'ログアウト', top_logout_path %>
-                <% else %>
-                    <%= link_to 'ログイン', top_main_path %>
-                <% end %>
-            </a>
-        </nav>
-    </div>
-</header>
-
-<h1>Show a Bookshelf</h1>
-<% if @shelfdata==nil %>
-    <%= "no data"  %><br>
+<div class="maincontents">
+<div class="navi_index">
+    <% url=generate_shereURL() %>
+    <%= link_to 'Twitterで共有', "https://twitter.com/share?url=#{url}", title: 'Twitter', target: '_blank' %>
+    <% if session[:email] %>
+        <%= link_to '編集', "/edit" %>
+    <% end %>
+</div>
+ 
+ <h2><%= @shelf.title %></h2>
+ <div class="book_list">
+<% if @shelfdata.empty? %>
+    <p class="nofication"><%= "本がありません" %></p>
 <% else %>
     <% @shelfdata.each do |d| %>
+    <div class="book">
         <% data=googlebookapi_search_one(d.googlebooksid) %>
         <%= data.title %><br>
         <%= link_to image_tag("#{data.thumbnail}"), "#{data.link}" %><br>
+        </div>
     <% end %>
 <% end %>
-
-<%= link_to 'edit', "/edit" %>
+</div>
+</div>

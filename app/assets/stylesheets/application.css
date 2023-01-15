@@ -10,6 +10,7 @@ body{
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
+    min-width: 1100px;
 }
 
 header {
@@ -20,6 +21,7 @@ header {
     background-color: #fff;
     display: flex;
     align-items: center;
+    min-width: 1100px;
 }
 
 header h1{
@@ -27,7 +29,7 @@ header h1{
     padding: 0;
     font-size: 30px;
     text-align: center;
-    margin-left: auto;
+    margin-left: calc(50vw - 63px);
     margin-right: auto;
 }
 
@@ -43,10 +45,13 @@ nav{
 
 .login,
 a.login{
+    margin-right: 1em;
     color: #fff;
     background-color: #e6e6e6;
-    border-radius: 50vh;
-    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    width: 120px;
+    height: 35px;
+    border-radius: 8px;
+    /*-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);*/
 }
 .login:hover,
 a.login:hover{
@@ -56,9 +61,12 @@ a.login:hover{
 
 .new--user,
 a.new--user{
+    margin-right: 1em;
     background-color: #e6e6e6;
-    border-radius: 100vh;
-    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    width: 120px;
+    height: 35px;
+    border-radius: 8px;
+   /* -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);*/
 
 }
 .new--user:hover,
@@ -66,3 +74,135 @@ a.new--user:hover{
     color: #fff;
     background-color: #a9a9a9; 
 } 
+
+
+img{
+    width: 128px;
+    height: 180px;
+    object-fit: contain;
+}
+
+h2{
+    margin: 0;
+    text-align: left;
+}
+
+h3{
+    margin: 0;
+    font-size: 1.05em;
+}
+
+form{
+    padding: 10px;
+    margin: 0 25%;
+    text-align: left;
+}
+
+form p{
+    margin:0;
+    margin-top: 10px;
+}
+
+input {
+    margin: auto;
+    background-color: #eee;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: inherit;
+    height: 2em;
+    width: 100%;
+    outline: 0;
+}
+
+input:focus {
+    border: 1px solid #e74c3c;
+}
+
+.button {
+    margin: 10px auto;
+    margin-left: calc(100% - 6em);
+    width: 5em;
+    border: none;
+}
+
+.button:hover,
+.button:focus {
+  background: #1abc9c;
+}
+
+.maincontents{
+    margin: 0 50px;
+}
+
+.navi_index{
+    text-align: right;
+}
+
+.navi_index a{
+    font-size: 1.1em;
+    margin-right: 0.5em;
+}
+
+.shelf{
+    margin: 1em 0;
+}
+
+.book{
+    margin: 2em;
+}
+
+.shelf .books{
+    display: flex;
+    min-height: 210px;
+}
+
+.shelf .book{
+    margin: 1px 18px;
+}
+
+.shelf a{
+    margin-top: 0.2em;
+}
+
+.title{
+    text-align: left;
+}
+
+.nofication{
+    font-size: 1.5em;
+}
+
+.add_link{
+    text-align: right;
+    margin-right: 2em;
+    margin-top: 1em;
+    font-size: 1.2em;
+}
+
+.back_link{
+    text-align: left;
+}
+
+.search{
+    white-space: nowrap;
+    margin: 0 15%;
+    align-items: center;
+}
+
+.search input{
+    background-color: transparent;
+    height: 3em;
+    border-radius: 1.5em;
+    border: 1px solid #a0a0a0;
+}
+
+.search .button{
+    margin: 0;
+    width: 3.1em;
+    height: 3.1em;
+}
+
+.book_list{
+    display: flex;
+    flex-wrap:wrap;
+}

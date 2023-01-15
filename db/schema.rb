@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2022_12_07_063143) do
   end
 
   create_table "bookshelves", force: :cascade do |t|
-    t.integer "googlebooksid"
     t.string "title"
     t.integer "user_id"
     t.datetime "created_at", null: false

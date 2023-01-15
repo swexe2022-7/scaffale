@@ -13,6 +13,7 @@ class TopController < ApplicationController
             login_password = BCrypt::Password.new(user.pass)
             if login_password == params[:pass]
                 session[:email] = user.email
+                session[:user_id]=user.id
                 redirect_to index_path
             else
                 flash[:info] = "入力情報に誤りがあります"
@@ -24,7 +25,8 @@ class TopController < ApplicationController
     end
     
     def logout
-        session.delete(:email)
+        #session.delete(:email)
+        reset_session
         redirect_to index_path
     end
 end

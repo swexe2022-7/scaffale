@@ -1,30 +1,9 @@
-<header>
-    <h1>
-        <a href="/">Scaffale</a>
-    </h1>
-    
-    <div class="login">
-        <nav>
-            <a href="#">
-                <% if session[:email] %>
-                    <%= link_to 'ログアウト', top_logout_path %>
-                <% else %>
-                    <%= link_to 'ログイン', top_main_path %>
-                <% end %>
-            </a>
-        </nav>
-    </div>
-</header>
-
-
-<h1>Make new Bookshelf</h1>
-<%= @id %>
-
+<div class="maincontents">
 <% if @status==false %>
     <%= render partial:"title" %>
-<% elsif  @status==true %>
+<% elsif @status==true %>
     <%= render partial:"modify" %>
 <% else %>
+    <p>Session Error</p>
 <% end %>
-
-<%= link_to 'Home', "/index" %>
+</div>

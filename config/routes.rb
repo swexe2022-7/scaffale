@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get ":id/shelf/delete" => "librarian#delete_shelf"
   get "edit_title" => "librarian#edit_title"
   post "edit_title" => "librarian#title"
+  get "share" => "librarian#shere"
   resources :users    
   #root 'top#main'
   root 'librarian#index'

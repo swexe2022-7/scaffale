@@ -1,37 +1,26 @@
-<header>
-    <h1>
-        <a href="/">Scaffale</a>
-    </h1>
-    
-    <div class="login">
-        <nav>
-            <a href="#">
-                <% if session[:email] %>
-                    <%= link_to 'ログアウト', top_logout_path %>
-                <% else %>
-                    <%= link_to 'ログイン', top_main_path %>
-                <% end %>
-            </a>
-        </nav>
-    </div>
-</header>
-
-
-<h1>Add from api</h1>
-<%= form_tag "", method: :post do %>
+<div class="maincontents">
+    <div class="back_link"><%= link_to "← 戻る", "/back" %></div>
+<%= form_tag "", method: :post, class: "search" do %>
     <%= text_field_tag :search_field %>
-    <%= submit_tag "検索" %>
+    <%= submit_tag "Q" , class: "button"%>
 <% end %>
 
+<div class="book_list">
 <% if @data != nil%>
     <% @data.each do |d| %>
+        <div class="book">
         <% data=googlebookapi_search_one(d.id) %>
-        <%= data.title %><br>
-        <%= link_to image_tag("#{data.thumbnail}"), "#{data.link}" %><br>
-        <%= link_to 'add shelf', "/#{data.id}/addbook" %>
-        <br>
+        <%= truncate(data.title, length:9) %><br>
+        <% if data.thumbnail != nil%>
+            <%= link_to image_tag("#{data.thumbnail}"), "#{data.link}" %><br>
+        <% else %>
+            <%= link_to image_tag("no_img.png"), "#{data.link}" %><br>
+        <% end %>
+        <%= link_to '追加', "/#{data.id}/addbook" %><br>
+        </div>
     <% end %>
 <% else %>
-    <p>none</p>
+    <p>検索結果：なし</p>
 <% end %>
-<%= link_to 'back', "/back" %>
+</div>
+</div>

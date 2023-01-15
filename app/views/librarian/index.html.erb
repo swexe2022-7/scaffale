@@ -1,38 +1,32 @@
-<header>
-    <h1>
-        <a href="/">Scaffale</a>
-    </h1>
-    
-    <div class="login">
-        <nav>
-            <a href="#">
-                <% if session[:email] %>
-                    <%= link_to 'ログアウト', top_logout_path %>
-                <% else %>
-                    <%= link_to 'ログイン', top_main_path %>
-                <% end %>
-            </a>
-        </nav>
-    </div>
-</header>
+<div class="navi_index">
+<% if session[:email] %>
+    <%= link_to '新規作成', "/new" %>
+    <%= link_to 'ユーザー情報の変更', "#" %>
+<% end %>
+</div>
 
 <% if session[:email] %>
-    <p><%= link_to 'new', "/new" %></p>
-    <p><%= link_to 'edit user info', "#" %></p>
-<% end %>
-
+<div class="maincontents">
 <% @bookshelves.each do |data| %>
-    <%= data.title %><br>
+<div class="shelf">
+    
+    <h2><%= link_to data.title, "/#{data.id}/showshelf" %></h2>
     <% shelfdata=BookCollectionList.where(Bookshelf_id: data.id) %>
+    <% thumbnail_length=6 %>
     
-    <% shelfdata.first(3).each do |d| %>
+    <div class="books">
+    <% shelfdata.first(thumbnail_length).each do |d| %>
+        <div class="book">
         <% bookdata=googlebookapi_search_one(d.googlebooksid) %>
-        <%= bookdata.title %><br>
-        <%= link_to image_tag("#{bookdata.thumbnail}"), "#{bookdata.link}" %><br>
+        <h3><%= truncate(bookdata.title, length:9) %></h3>
+        <%= link_to image_tag("#{bookdata.thumbnail}"), "#{bookdata.link}" %>
+        </div>
     <% end %>
+    </div>
     
-    <% if session[:email] %>
-        <%= link_to 'show', "/#{data.id}/showshelf" %><br>
-    <% end %>
-    <br>
+    </div>
+<% end %>
+</div>
+<% else %>
+    <P>ログインしてください</P>
 <% end %>

@@ -1,13 +1,21 @@
-<h1>show temp and edit</h1>
-<% if @shelfdata==nil %>
-    <%= "no data"  %><br>
+<div class="navi_index">
+<%= link_to 'タイトルを編集', "/edit_title" %>
+<%= link_to '削除', "/#{@id}/shelf/delete" %>
+</div>
+ 
+ <h2><%= Bookshelf.find(session[:shelf_id]).title %></h2>
+ <div class="add_link"><%= link_to "追加", "/add" %></div>
+ <div class="book_list">
+<% if @shelfdata.empty? %>
+    <p class="nofication"><%= "本がありません" %></p>
 <% else %>
     <% @shelfdata.each do |d| %>
+    <div class="book">
         <% data=googlebookapi_search_one(d.googlebooksid) %>
         <%= data.title %><br>
         <%= link_to image_tag("#{data.thumbnail}"), "#{data.link}" %><br>
-        <%= link_to 'delete', "/#{d.id}/delete" %><br>
+        <%= link_to 'delete', "/#{d.id}/delete" %>
+        </div>
     <% end %>
 <% end %>
-
-<%= link_to 'add book', "/add" %>
+</div>
