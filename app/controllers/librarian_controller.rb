@@ -6,7 +6,11 @@ class LibrarianController < ApplicationController
     protect_from_forgery
     
     def index
-        @bookshelves=Bookshelf.where(User_id: session[:user_id])
+        if session[:email]
+            @bookshelves=Bookshelf.where(User_id: session[:user_id])
+        else
+            @bookshelves=Bookshelf.all
+        end
     end
     
     def showshelf
@@ -101,12 +105,6 @@ class LibrarianController < ApplicationController
         else
             redirect_to "/edit"
         end
-    end
-    
-    def verification
-        keyword="ハリーポッター"
-        @data=googlebookapi_data(keyword)
-        
     end
     
     def googlebookapi_req(search_str)

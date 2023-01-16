@@ -5,14 +5,14 @@
 <% end %>
 </div>
 
-<% if session[:email] %>
 <div class="maincontents">
+<% if @bookshelves != nil %>
 <% @bookshelves.each do |data| %>
 <div class="shelf">
     
     <h2><%= link_to data.title, "/#{data.id}/showshelf" %></h2>
     <% shelfdata=BookCollectionList.where(Bookshelf_id: data.id) %>
-    <% thumbnail_length=6 %>
+    <% thumbnail_length= 6%>
     
     <div class="books">
     <% shelfdata.first(thumbnail_length).each do |d| %>
@@ -26,7 +26,8 @@
     
     </div>
 <% end %>
-</div>
+
 <% else %>
-    <P>ログインしてください</P>
+    <P>データがありません</P>
 <% end %>
+</div>
