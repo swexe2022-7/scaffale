@@ -111,8 +111,9 @@ class LibrarianController < ApplicationController
     
     def googlebookapi_req(search_str)
         apiurl="https://www.googleapis.com/books/v1/volumes?q="
+        query="&maxResults=40"
         
-        urlpath=apiurl+URI.encode_www_form_component(search_str)
+        urlpath=apiurl+URI.encode_www_form_component(search_str)+query
         url=URI.parse(urlpath)
         return Net::HTTP.get(url)
     end

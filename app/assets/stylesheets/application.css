@@ -5,31 +5,36 @@
 body{
     margin: 0;
     padding: 15px 0;
-    background-color: #e6e6e6;
+    background-color: #fff;
     text-align: center;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
     min-width: 1100px;
+    max-width: 1600px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
 
 header {
-    padding: 15px 0;
+    padding: 10px 0;
     position: fixed;
     top: 0;
     width: 100%;
     background-color: #fff;
     display: flex;
     align-items: center;
+    border-bottom: 1.5px solid #6E6E6E;
     min-width: 1100px;
 }
 
 header h1{
     margin: 0;
     padding: 0;
-    font-size: 30px;
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 42px;
     text-align: center;
-    margin-left: calc(50vw - 63px);
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -43,9 +48,11 @@ nav{
     font-size: 20px;
 }
 
-.login,
-a.login{
-    margin-right: 1em;
+.login{
+    position: absolute;
+    right: 1em;
+    padding-top: 6px;
+    align-items: center;
     color: #fff;
     background-color: #e6e6e6;
     width: 120px;
@@ -53,15 +60,17 @@ a.login{
     border-radius: 8px;
     /*-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);*/
 }
-.login:hover,
-a.login:hover{
+
+.login:hover{
     color: #fff;
     background-color: #c0c0c0; 
 } 
 
 .new--user,
 a.new--user{
-    margin-right: 1em;
+    position: absolute;
+    right: 1em;
+    padding-top: 6px;
     background-color: #e6e6e6;
     width: 120px;
     height: 35px;
@@ -85,6 +94,8 @@ img{
 h2{
     margin: 0;
     text-align: left;
+    font-size: 1.7em;
+    letter-spacing: 1px;
 }
 
 h3{
@@ -115,7 +126,7 @@ input {
 }
 
 input:focus {
-    border: 1px solid #e74c3c;
+    border: 1px solid #0f93ff;
 }
 
 .button {
@@ -127,7 +138,8 @@ input:focus {
 
 .button:hover,
 .button:focus {
-  background: #1abc9c;
+  background: #c0c0c0;
+  border: none;
 }
 
 .maincontents{
@@ -145,6 +157,9 @@ input:focus {
 
 .shelf{
     margin: 1em 0;
+    padding: 0 10px;
+    border-radius: 4px;
+    background-color: #f2f2f2;
 }
 
 .book{
@@ -169,14 +184,14 @@ input:focus {
 }
 
 .nofication{
-    font-size: 1.5em;
+    font-size: 1.1em;
 }
 
 .add_link{
     text-align: right;
-    margin-right: 2em;
+    margin-right: 1.5em;
     margin-top: 1em;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 .back_link{
@@ -205,4 +220,7 @@ input:focus {
 .book_list{
     display: flex;
     flex-wrap:wrap;
+    padding: 0 10px;
+    border-radius: 4px;
+    background-color: #f2f2f2;
 }
