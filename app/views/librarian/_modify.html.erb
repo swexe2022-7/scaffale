@@ -12,7 +12,7 @@
     <% @shelfdata.each do |d| %>
     <div class="book">
         <% data=googlebookapi_search_one(d.googlebooksid) %>
-        <%= data.title %><br>
+        <%= truncate(data.title, length:9) %><br>
         <%= link_to image_tag("#{data.thumbnail}"), "#{data.link}" %><br>
         <%= link_to 'delete', "/#{d.id}/delete" %>
         </div>
