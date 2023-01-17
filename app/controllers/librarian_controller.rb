@@ -7,7 +7,7 @@ class LibrarianController < ApplicationController
     
     def index
         if session[:email]
-            @bookshelves=Bookshelf.where(User_id: session[:user_id])
+            @bookshelves=Bookshelf.where(user_id: session[:user_id])
         else
             @bookshelves=Bookshelf.all
         end
