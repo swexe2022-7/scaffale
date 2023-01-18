@@ -21,14 +21,14 @@ class LibrarianController < ApplicationController
     def show
         @id=session[:shelf_id]
         @shelf=Bookshelf.find(@id)
-        @shelfdata=BookCollectionList.where(Bookshelf_id: @id)
+        @shelfdata=BookCollectionList.where(bookshelf_id: @id)
     end
     
     def edit
         session[:pagestatus]="edit"
         @status=true
         @id=session[:shelf_id]
-        @shelfdata=BookCollectionList.where(Bookshelf_id: @id)
+        @shelfdata=BookCollectionList.where(bookshelf_id: @id)
     end
     
     def edit_title
@@ -54,7 +54,7 @@ class LibrarianController < ApplicationController
             @status=true
         end
         
-        @shelfdata=BookCollectionList.where(Bookshelf_id: @id)
+        @shelfdata=BookCollectionList.where(bookshelf_id: @id)
     end
     
     def title
